@@ -2,6 +2,7 @@
 class EmailValidationError extends Error {
     constructor(message) {
         super(message);  // Appelle le constructeur de la classe parent (Error)
+        this.name = 'Email ValidationError';
         //TODO
     }
 }
@@ -12,6 +13,7 @@ function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email)) {
+        throw new EmailValidationError("Invalid email");
         //TODO
     }
     return "Adresse e-mail valide.";
